@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+    web:
+        build: .
+        container_name: "totalcheck_api_core"
+        restart: "always"
+        ports:
+            - "9001:80"
+        volumes:
+            - "./:/var/www/html/"
+        extra_hosts:
+            - "api-v2-test.totalcheck.mx.gdeleon:127.0.0.1"

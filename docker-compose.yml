@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+    back:
+        build: ./medizona_back/.
+        container_name: "medizona_back"
+        restart: "always"
+        ports:
+            - "9001:80"
+        volumes:
+            - "./:/var/www/html/"
+        extra_hosts:
+            - "medizone.mx.gdeleon:127.0.0.1"
+    front:
+        build: ./medizona_front/.
+        container_name: "medizona_front"
+        restart: "always"
+        ports:
+            - "8081:80"
+        volumes:
+            - "./dist/:/usr/share/nginx/html"
+    bd:
+        build: ./medizona_front/.
+        container_name: "medizona_db"
+        restart: "always"
+        ports:
+            - "5432:5432"
+        volumes:
+            - "./:/var/lib/postgresql/data"
