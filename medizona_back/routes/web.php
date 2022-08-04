@@ -23,6 +23,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('/login', 'AuthController@login');
     $router->post('/register', 'AuthController@register');
 
+    /**functions to notes */
+    $router->post('/nota', 'NotaController@create');
+    $router->get('/nota/{id}', 'NotaController@read');
+    $router->put('/nota/{id}', 'NotaController@update');
+
     $router->group(['middleware' => 'auth'], function () use ($router) {        
         $router->post('/logout', 'AuthController@logout');
     });

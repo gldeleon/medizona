@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\handlerExceptions;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -10,14 +11,17 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract {
+class User extends Model implements 
+    AuthenticatableContract,
+    AuthorizableContract {
 
     use Authenticatable,
         Authorizable,
         HasFactory,
-        HasApiTokens;
+        HasApiTokens,
+        handlerExceptions;
 
-    protected $table = 'users';
+    protected $table = 'user';
     protected $primaryKey = 'id';
 
     /**
@@ -25,8 +29,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $fillable = [
-        "email", "name", "middle_name", "last_name", "avatar", "email_verified_at"
+    protected $fillable = [        
+        'email',        
+        'password'        
     ];
 
     /**
@@ -35,7 +40,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password'
     ];
-
 }

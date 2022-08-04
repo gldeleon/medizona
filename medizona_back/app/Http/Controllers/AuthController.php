@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\ResponseController as RC;
+use App\Models\Customer;
 use Zttp\Zttp;
 use Zttp\ZttpRequest;
 use Zttp\ZttpResponse;
@@ -28,11 +29,13 @@ class AuthController extends RC {
                         "password" => $request->password
             ]);            
             $profile = User::where("email", "=", $email)->get();
+            $customer = Customer::where("email","=", $email)->get();
             $responsedata = [
                 "access_token" => $response->json()["access_token"],
                 "refresh_token" => $response->json()["refresh_token"],
                 "usr_email" => $profile[0]->email,
-                "usr_name" => $profile[0]->name
+                "usr_name" => $profile[0]->name,
+                "customer_id" => $customer[0]->customer_id
             ];
             return $this->sendResponse($responsedata, 'Login exitoso');
         } catch (BadResponseException $ex) {

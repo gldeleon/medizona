@@ -1,154 +1,186 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa"
-          target="_blank"
-          rel="noopener"
-          >pwa</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest"
-          target="_blank"
-          rel="noopener"
-          >unit-jest</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-cypress"
-          target="_blank"
-          rel="noopener"
-          >e2e-cypress</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+  <!--
+    This example requires updating your template:
+
+    ```
+    <html class="h-full bg-gray-50">
+    <body class="h-full">
+    ```
+  -->
+  <div
+    class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+  >
+    <div class="max-w-md w-full space-y-8">
+      <div>
+        <img
+          class="mx-auto h-12 w-auto"
+          src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+          alt="Workflow"
+        />
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Favor de iniciar sesion
+        </h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          {{ ' ' }}
+          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+          </a>
+        </p>
+      </div>
+      <form class="mt-8 space-y-6" action="#" method="POST">
+        <input type="hidden" name="remember" value="true" />
+        <div class="rounded-md shadow-sm -space-y-px">
+          <div>
+            <label for="email-address" class="sr-only">Email</label>
+            <input
+              id="email-address"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required=""
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="Email"
+              v-model="input.usr"
+            />
+          </div>
+          <div>
+            <label for="password" class="sr-only">Contraseña</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required=""
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder="Contraseña"
+              v-model="input.pwd"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+            />
+            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+              Recordarme
+            </label>
+          </div>
+
+          <div class="text-sm">
+            <a
+              href="#"
+              class="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              Olvidaste tu contraseña?
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <button
+            @click="login()"
+            type="submit"
+            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+              <!-- <LockClosedIcon
+                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                aria-hidden="true"
+              /> -->
+            </span>
+            Iniciar sesion
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+// import { LockClosedIcon } from '@heroicons/vue/solid';
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
+  name: 'login',
+  components: {
+    // LockClosedIcon,
+  },
+  data() {
+    return {
+      showpwd: 'password',
+      show: false,
+      input: {
+        usr: '',
+        pwd: '',
+        // usr: 'sysadmin',
+        // pwd: 'masterkey',
+      },
+    };
+  },
+  methods: {
+    login: async function () {
+      var self = this;
+      var headers = {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'access-control-allow-origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      };
+      this.show = true;
+
+      try {
+        const response = await this.$http.post(
+          this.$apiUrl + 'auth/login',
+          {
+            email: this.input.usr,
+            password: this.input.pwd,
+          },
+          { headers }
+        );
+
+        if (!response.data.success) {
+          alert(
+            'Usuario y/o contraseña incorrectos. Por favor revisa tus credenciales.!'
+          );
+        }
+
+        self.$session.start();
+        const user = {
+          ...response.data.data.user,
+        };
+        self.$session.set('token', response.data.data.access_token);
+        self.$session.set('customer_id', response.data.data.customer_id);
+        self.$session.set('user', user);
+
+        self.show = false;
+        self.$router.push({ name: '/notas' });
+      } catch (error) {
+        if (error.response) {
+          // console.log('err', error.response)
+        }
+        alert(
+          'Usuario y/o contraseña incorrectos. Por favor revisa tus credenciales.!'
+        );
+      }
+    },
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
